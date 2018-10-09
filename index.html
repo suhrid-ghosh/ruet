@@ -1,183 +1,276 @@
-<div id="questions">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Simple analytical test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+    #start #finish {
+        text-align: center;
+    }
+</style>
+<script>
+    var start_time;
+    var end_time;
+    function start_survey() {
+        $("#questions").css("display","block");
+        $("#start").css("display","none");
+        start_time = Date.now();
+    }
+    function complete_survey() {
+        end_time = Date.now();
+        $("#questions").css("display", "none");
+        $("#finish").css("display","block");
+        $("#time").text(((end_time-start_time)/1000).toString() + " sec");
+        var correct = 0;
+        if($("input[name='q1']:checked").prop("id") == "q1-2") 
+            correct++;
+        if($("input[name='q2']:checked").prop("id") == "q2-3") 
+            correct++;
+        if($("input[name='q3']:checked").prop("id") == "q3-2") 
+            correct++;
+        if($("input[name='q4']:checked").prop("id") == "q4-1") 
+            correct++;
+        if($("input[name='q5']:checked").prop("id") == "q5-4") 
+            correct++;
+        if($("input[name='q6']:checked").prop("id") == "q6-2") 
+            correct++;
+        if($("input[name='q7']:checked").prop("id") == "q7-4") 
+            correct++;
+        if($("input[name='q8']:checked").prop("id") == "q8-1") 
+            correct++;
+        if($("input[name='q9']:checked").prop("id") == "q9-2") 
+            correct++;
+        if($("input[name='q10']:checked").prop("id") == "q10-3") 
+            correct++;
+        if($("input[name='q11']:checked").prop("id") == "q11-1") 
+            correct++;
+        if($("input[name='q12']:checked").prop("id") == "q12-3") 
+            correct++;
+        $("#result").text(correct + " / 12");
+    }
+</script>
+<body>
+    <div id="finish" style="display:none">
+        Result = <span id="result"></span>
+        <br/>
+        Time = <span id="time"></span>
+    </div>
+    <div id="start">
+        <button id="start-question" onclick="start_survey()">
+            Start
+        </button>
+    </div>
+    <div id="questions" style="display:none">
         <div style="margin-left:20px">
-                <p style="margin:10px 0">1. In questions such as below, identify the two statements necessary to make the
-                    conclusion in the beginning of the question true. </p>
-                <p class="big">Jonathan is swimming. </p>
-                <p class="big">a) Jonathan is in the pool during the winter.<br>b) Jonathan is in the pool.<br>c) Swimming takes
-                    place in the pool during the winter.<br>d) All the boys in the pool are swimming.</p>
-                <div style="margin-left:15px">
-                    <table style="width:100%;table-layout:fixed">
-                        <tbody>
-                            <tr>
-                                <td style="width:25%"><input type="radio" name="q1" id="q1-1" value="17263"><label for="q1-1">a
-                                        &amp; b</label></td>
-                                <td style="width:25%"><input type="radio" name="q1" id="q1-2" value="17264"><label for="q1-2">b
-                                        &amp; d</label></td>
-                                <td style="width:25%"><input type="radio" name="q1" id="q1-3" value="17265"><label for="q1-3">c
-                                        &amp; d</label></td>
-                                <td style="width:25%"><input type="radio" name="q1" id="q1-4" value="17266"><label for="q1-4">d
-                                        &amp; a</label></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><br>
-                <p style="margin:10px 0">2. Tom pitches the ball faster than Mike.</p>
-                <p class="big">a) David is the champion pitcher. <br>b) Tom can throw the ball further than David. <br>c) Tom can
-                    throw the ball as fast as David. <br>d) David can throw the ball faster than Mike. <br></p>
-                <div style="margin-left:15px">
-                    <table style="width:100%;table-layout:fixed">
-                        <tbody>
-                            <tr>
-                                <td style="width:25%"><input type="radio" name="q2" id="q2-1" value="17267"><label for="q2-1">a
-                                        &amp; b</label></td>
-                                <td style="width:25%"><input type="radio" name="q2" id="q2-2" value="17268"><label for="q2-2">b
-                                        &amp; d</label></td>
-                                <td style="width:25%"><input type="radio" name="q2" id="q2-3" value="17269"><label for="q2-3">c
-                                        &amp; d</label></td>
-                                <td style="width:25%"><input type="radio" name="q2" id="q2-4" value="17270"><label for="q2-4">b
-                                        &amp; c</label></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><br>
-                <p style="margin:10px 0">3. Hundred soldiers went to the war.</p>
-                <p class="big">a) Forty soldiers did not turn up for the war. <br>b) Twenty soldiers were killed in the war. <br>c)
-                    The war was boycotted by sixty soldiers. <br>d) Eighty soldiers returned alive. <br></p>
-                <div style="margin-left:15px">
-                    <table style="width:100%;table-layout:fixed">
-                        <tbody>
-                            <tr>
-                                <td style="width:25%"><input type="radio" name="q3" id="q3-1" value="17271"><label for="q3-1">a
-                                        &amp; b</label></td>
-                                <td style="width:25%"><input type="radio" name="q3" id="q3-2" value="17272"><label for="q3-2">b
-                                        &amp; d</label></td>
-                                <td style="width:25%"><input type="radio" name="q3" id="q3-3" value="17273"><label for="q3-3">a
-                                        &amp; c</label></td>
-                                <td style="width:25%"><input type="radio" name="q3" id="q3-4" value="17274"><label for="q3-4">c
-                                        &amp; d</label></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><br>
-                <p style="margin:10px 0">4. A is south-west to C.</p>
-                <p class="big">a) A is two miles south of B. <br>b) B is two miles east of D. <br>c) C is two miles east of B. <br>d)
-                    D is North-west of A. <br></p>
-                <div style="margin-left:15px">
-                    <table style="width:100%;table-layout:fixed">
-                        <tbody>
-                            <tr>
-                                <td style="width:25%"><input type="radio" name="q4" id="q4-1" value="17275"><label for="q4-1">a
-                                        &amp; c</label></td>
-                                <td style="width:25%"><input type="radio" name="q4" id="q4-2" value="17276"><label for="q4-2">c
-                                        &amp; b</label></td>
-                                <td style="width:25%"><input type="radio" name="q4" id="q4-3" value="17277"><label for="q4-3">d
-                                        &amp; b</label></td>
-                                <td style="width:25%"><input type="radio" name="q4" id="q4-4" value="17278"><label for="q4-4">a
-                                        &amp; d</label></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><br>
-                <p style="margin:10px 0">5. Four defenders in a football match — Defender A, Defender B, Defender C &amp; Defender
-                    D — take their positions in this order in a row from right to left. During the match, Defender A changes places
-                    with Defender C and then Defender C changes places with Defender B. Which defender is now at the left end of
-                    the row?</p>
-                <div style="margin-left:15px">
-                    <table style="width:100%;table-layout:fixed">
-                        <tbody>
-                            <tr>
-                                <td style="width:25%"><input type="radio" name="q5" id="q5-1" value="17279"><label for="q5-1">Defender
-                                        A</label></td>
-                                <td style="width:25%"><input type="radio" name="q5" id="q5-2" value="17280"><label for="q5-2">Defender
-                                        B</label></td>
-                                <td style="width:25%"><input type="radio" name="q5" id="q5-3" value="17281"><label for="q5-3">Defender
-                                        C</label></td>
-                                <td style="width:25%"><input type="radio" name="q5" id="q5-4" value="17282"><label for="q5-4">Defender
-                                        D</label></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><br>
-                <p style="margin:10px 0">6. In the above question who is to the right of Defender C?</p>
-                <div style="margin-left:15px">
-                    <table style="width:100%;table-layout:fixed">
-                        <tbody>
-                            <tr>
-                                <td style="width:25%"><input type="radio" name="q6" id="q6-1" value="17283"><label for="q6-1">Defender
-                                        A</label></td>
-                                <td style="width:25%"><input type="radio" name="q6" id="q6-2" value="17284"><label for="q6-2">Defender
-                                        B</label></td>
-                                <td style="width:25%"><input type="radio" name="q6" id="q6-3" value="17285"><label for="q6-3">Defender
-                                        D</label></td>
-                                <td style="width:25%"><input type="radio" name="q6" id="q6-4" value="17286"><label for="q6-4">No
-                                        one</label></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><br>
-                <p style="margin:10px 0">7. Six electronic items are stacked in a cupboard divided into several racks. Cellphone is
-                    in the rack right above the Ipod and the Laptop is in the rack right below the Food warmer. Food warmer is in
-                    the rack right above the Cellphone and the Ipod shares the rack with the Headphones. Coffee brewing machine is
-                    kept on the lowest rack. Which item is on the topmost rack?</p>
-                <div style="margin-left:15px"><input type="radio" name="q7" id="q7-1" value="17287"><label for="q7-1">Cellphone&nbsp;&nbsp;&nbsp;</label><br><input
-                        type="radio" name="q7" id="q7-2" value="17288"><label for="q7-2">Ipod&nbsp;&nbsp;&nbsp;</label><br><input
-                        type="radio" name="q7" id="q7-3" value="17289"><label for="q7-3">Laptop&nbsp;&nbsp;&nbsp;</label><br><input
-                        type="radio" name="q7" id="q7-4" value="17290"><label for="q7-4">Food warmer</label><br><input type="radio"
-                        name="q7" id="q7-5" value="17291"><label for="q7-5">Coffee brewing machine</label><br></div><br>
-                <p style="margin:10px 0">8. In the above question which two other items share a rack?</p>
-                <div style="margin-left:15px"><input type="radio" name="q8" id="q8-1" value="17292"><label for="q8-1">Cellphone
-                        &amp; Laptop</label><br><input type="radio" name="q8" id="q8-2" value="17293"><label for="q8-2">Food warmer
-                        &amp; Coffee brewing machine</label><br><input type="radio" name="q8" id="q8-3" value="17294"><label for="q8-3">Cellphone
-                        &amp; Coffee brewing machine</label><br><input type="radio" name="q8" id="q8-4" value="17295"><label for="q8-4">Laptop
-                        &amp; Food warmer</label><br></div><br>
-                <p style="margin:10px 0">9. Five swimmers — A, B, C, D, E — participated in a competition. A lost to B but beat C.
-                    D beat E but failed to beat C. Which swimmer won the competition?</p>
-                <div style="margin-left:15px"><input type="radio" name="q9" id="q9-1" value="17296"><label for="q9-1">A</label><br><input
-                        type="radio" name="q9" id="q9-2" value="17297"><label for="q9-2">B</label><br><input type="radio" name="q9"
-                        id="q9-3" value="17298"><label for="q9-3">C</label><br><input type="radio" name="q9" id="q9-4" value="17299"><label
-                        for="q9-4">D</label><br><input type="radio" name="q9" id="q9-5" value="17300"><label for="q9-5">E</label><br></div><br>
-                <p style="margin:10px 0">10. In the above question which swimmer came second-last?</p>
-                <div style="margin-left:15px"><input type="radio" name="q10" id="q10-1" value="17301"><label for="q10-1">C</label><br><input
-                        type="radio" name="q10" id="q10-2" value="17302"><label for="q10-2">A</label><br><input type="radio" name="q10"
-                        id="q10-3" value="17303"><label for="q10-3">D</label><br><input type="radio" name="q10" id="q10-4" value="17304"><label
-                        for="q10-4">B</label><br><input type="radio" name="q10" id="q10-5" value="17305"><label for="q10-5">E</label><br></div><br>
-                <p style="margin:10px 0">11. Laura loves to eat apple but not the banana while John loves to eat mango and the
-                    banana. Kim loves to eat mango but not the apple and Jim loves to eat banana but not the mango. If each child
-                    loves to eat two of the three fruits, which one has the same preference as John?</p>
-                <div style="margin-left:15px">
-                    <table style="width:100%;table-layout:fixed">
-                        <tbody>
-                            <tr>
-                                <td style="width:25%"><input type="radio" name="q11" id="q11-1" value="17306"><label for="q11-1">Kim</label></td>
-                                <td style="width:25%"><input type="radio" name="q11" id="q11-2" value="17307"><label for="q11-2">Laura</label></td>
-                                <td style="width:25%"><input type="radio" name="q11" id="q11-3" value="17308"><label for="q11-3">Jim</label></td>
-                                <td style="width:25%"><input type="radio" name="q11" id="q11-4" value="17309"><label for="q11-4">No
-                                        one</label></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><br>
-                <p style="margin:10px 0">12. A pair of referee and linesman officiated in football matches for a week. The referees
-                    were A, B, and C. The linesmen were 1, 2, 3, 4 and 5. </p>
-                <p class="big">a) No Referee or linesman officiated in two consecutive matches. <br>b) A and 3, if either
-                    officiated, were always in a pair. <br> c) 5 officiated in Wednesday’s match. <br>d) 4 could not officiate in a
-                    match immediately preceding or following a match where 5 officiated. <br></p>
-                <p class="big">Which pair officiated in Tuesday’s match?</p>
-                <div style="margin-left:15px">
-                    <table style="width:100%;table-layout:fixed">
-                        <tbody>
-                            <tr>
-                                <td style="width:25%"><input type="radio" name="q12" id="q12-1" value="17310"><label for="q12-1">A
-                                        and 5</label></td>
-                                <td style="width:25%"><input type="radio" name="q12" id="q12-2" value="17311"><label for="q12-2">C
-                                        and 4</label></td>
-                                <td style="width:25%"><input type="radio" name="q12" id="q12-3" value="17312"><label for="q12-3">B
-                                        and 2</label></td>
-                                <td style="width:25%"><input type="radio" name="q12" id="q12-4" value="17313"><label for="q12-4">A
-                                        and 2</label></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><br>
-            </div>
-</div>
+            <p style="margin:10px 0">1. In questions such as below, identify the two statements necessary to make the
+                conclusion in the beginning of the question true. </p>
+            <p class="big">Jonathan is swimming. </p>
+            <p class="big">a) Jonathan is in the pool during the winter.<br>b) Jonathan is in the pool.<br>c) Swimming
+                takes
+                place in the pool during the winter.<br>d) All the boys in the pool are swimming.</p>
+            <div style="margin-left:15px">
+                <table style="width:100%;table-layout:fixed">
+                    <tbody>
+                        <tr>
+                            <td style="width:25%"><input type="radio" name="q1" id="q1-1" value="17263"><label for="q1-1">a
+                                    &amp; b</label></td>
+                            <td style="width:25%"><input type="radio" name="q1" id="q1-2" value="17264"><label for="q1-2">b
+                                    &amp; d</label></td>
+                            <td style="width:25%"><input type="radio" name="q1" id="q1-3" value="17265"><label for="q1-3">c
+                                    &amp; d</label></td>
+                            <td style="width:25%"><input type="radio" name="q1" id="q1-4" value="17266"><label for="q1-4">d
+                                    &amp; a</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><br>
+            <p style="margin:10px 0">2. Tom pitches the ball faster than Mike.</p>
+            <p class="big">a) David is the champion pitcher. <br>b) Tom can throw the ball further than David. <br>c)
+                Tom can
+                throw the ball as fast as David. <br>d) David can throw the ball faster than Mike. <br></p>
+            <div style="margin-left:15px">
+                <table style="width:100%;table-layout:fixed">
+                    <tbody>
+                        <tr>
+                            <td style="width:25%"><input type="radio" name="q2" id="q2-1" value="17267"><label for="q2-1">a
+                                    &amp; b</label></td>
+                            <td style="width:25%"><input type="radio" name="q2" id="q2-2" value="17268"><label for="q2-2">b
+                                    &amp; d</label></td>
+                            <td style="width:25%"><input type="radio" name="q2" id="q2-3" value="17269"><label for="q2-3">c
+                                    &amp; d</label></td>
+                            <td style="width:25%"><input type="radio" name="q2" id="q2-4" value="17270"><label for="q2-4">b
+                                    &amp; c</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><br>
+            <p style="margin:10px 0">3. Hundred soldiers went to the war.</p>
+            <p class="big">a) Forty soldiers did not turn up for the war. <br>b) Twenty soldiers were killed in the
+                war. <br>c)
+                The war was boycotted by sixty soldiers. <br>d) Eighty soldiers returned alive. <br></p>
+            <div style="margin-left:15px">
+                <table style="width:100%;table-layout:fixed">
+                    <tbody>
+                        <tr>
+                            <td style="width:25%"><input type="radio" name="q3" id="q3-1" value="17271"><label for="q3-1">a
+                                    &amp; b</label></td>
+                            <td style="width:25%"><input type="radio" name="q3" id="q3-2" value="17272"><label for="q3-2">b
+                                    &amp; d</label></td>
+                            <td style="width:25%"><input type="radio" name="q3" id="q3-3" value="17273"><label for="q3-3">a
+                                    &amp; c</label></td>
+                            <td style="width:25%"><input type="radio" name="q3" id="q3-4" value="17274"><label for="q3-4">c
+                                    &amp; d</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><br>
+            <p style="margin:10px 0">4. A is south-west to C.</p>
+            <p class="big">a) A is two miles south of B. <br>b) B is two miles east of D. <br>c) C is two miles east of
+                B. <br>d)
+                D is North-west of A. <br></p>
+            <div style="margin-left:15px">
+                <table style="width:100%;table-layout:fixed">
+                    <tbody>
+                        <tr>
+                            <td style="width:25%"><input type="radio" name="q4" id="q4-1" value="17275"><label for="q4-1">a
+                                    &amp; c</label></td>
+                            <td style="width:25%"><input type="radio" name="q4" id="q4-2" value="17276"><label for="q4-2">c
+                                    &amp; b</label></td>
+                            <td style="width:25%"><input type="radio" name="q4" id="q4-3" value="17277"><label for="q4-3">d
+                                    &amp; b</label></td>
+                            <td style="width:25%"><input type="radio" name="q4" id="q4-4" value="17278"><label for="q4-4">a
+                                    &amp; d</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><br>
+            <p style="margin:10px 0">5. Four defenders in a football match — Defender A, Defender B, Defender C &amp;
+                Defender
+                D — take their positions in this order in a row from right to left. During the match, Defender A
+                changes places
+                with Defender C and then Defender C changes places with Defender B. Which defender is now at the left
+                end of
+                the row?</p>
+            <div style="margin-left:15px">
+                <table style="width:100%;table-layout:fixed">
+                    <tbody>
+                        <tr>
+                            <td style="width:25%"><input type="radio" name="q5" id="q5-1" value="17279"><label for="q5-1">Defender
+                                    A</label></td>
+                            <td style="width:25%"><input type="radio" name="q5" id="q5-2" value="17280"><label for="q5-2">Defender
+                                    B</label></td>
+                            <td style="width:25%"><input type="radio" name="q5" id="q5-3" value="17281"><label for="q5-3">Defender
+                                    C</label></td>
+                            <td style="width:25%"><input type="radio" name="q5" id="q5-4" value="17282"><label for="q5-4">Defender
+                                    D</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><br>
+            <p style="margin:10px 0">6. In the above question who is to the right of Defender C?</p>
+            <div style="margin-left:15px">
+                <table style="width:100%;table-layout:fixed">
+                    <tbody>
+                        <tr>
+                            <td style="width:25%"><input type="radio" name="q6" id="q6-1" value="17283"><label for="q6-1">Defender
+                                    A</label></td>
+                            <td style="width:25%"><input type="radio" name="q6" id="q6-2" value="17284"><label for="q6-2">Defender
+                                    B</label></td>
+                            <td style="width:25%"><input type="radio" name="q6" id="q6-3" value="17285"><label for="q6-3">Defender
+                                    D</label></td>
+                            <td style="width:25%"><input type="radio" name="q6" id="q6-4" value="17286"><label for="q6-4">No
+                                    one</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><br>
+            <p style="margin:10px 0">7. Six electronic items are stacked in a cupboard divided into several racks.
+                Cellphone is
+                in the rack right above the Ipod and the Laptop is in the rack right below the Food warmer. Food warmer
+                is in
+                the rack right above the Cellphone and the Ipod shares the rack with the Headphones. Coffee brewing
+                machine is
+                kept on the lowest rack. Which item is on the topmost rack?</p>
+            <div style="margin-left:15px"><input type="radio" name="q7" id="q7-1" value="17287"><label for="q7-1">Cellphone&nbsp;&nbsp;&nbsp;</label><br><input
+                    type="radio" name="q7" id="q7-2" value="17288"><label for="q7-2">Ipod&nbsp;&nbsp;&nbsp;</label><br><input
+                    type="radio" name="q7" id="q7-3" value="17289"><label for="q7-3">Laptop&nbsp;&nbsp;&nbsp;</label><br><input
+                    type="radio" name="q7" id="q7-4" value="17290"><label for="q7-4">Food warmer</label><br><input type="radio"
+                    name="q7" id="q7-5" value="17291"><label for="q7-5">Coffee brewing machine</label><br></div><br>
+            <p style="margin:10px 0">8. In the above question which two other items share a rack?</p>
+            <div style="margin-left:15px"><input type="radio" name="q8" id="q8-1" value="17292"><label for="q8-1">Cellphone
+                    &amp; Laptop</label><br><input type="radio" name="q8" id="q8-2" value="17293"><label for="q8-2">Food
+                    warmer
+                    &amp; Coffee brewing machine</label><br><input type="radio" name="q8" id="q8-3" value="17294"><label
+                    for="q8-3">Cellphone
+                    &amp; Coffee brewing machine</label><br><input type="radio" name="q8" id="q8-4" value="17295"><label
+                    for="q8-4">Laptop
+                    &amp; Food warmer</label><br></div><br>
+            <p style="margin:10px 0">9. Five swimmers — A, B, C, D, E — participated in a competition. A lost to B but
+                beat C.
+                D beat E but failed to beat C. Which swimmer won the competition?</p>
+            <div style="margin-left:15px"><input type="radio" name="q9" id="q9-1" value="17296"><label for="q9-1">A</label><br><input
+                    type="radio" name="q9" id="q9-2" value="17297"><label for="q9-2">B</label><br><input type="radio"
+                    name="q9" id="q9-3" value="17298"><label for="q9-3">C</label><br><input type="radio" name="q9" id="q9-4"
+                    value="17299"><label for="q9-4">D</label><br><input type="radio" name="q9" id="q9-5" value="17300"><label
+                    for="q9-5">E</label><br></div><br>
+            <p style="margin:10px 0">10. In the above question which swimmer came second-last?</p>
+            <div style="margin-left:15px"><input type="radio" name="q10" id="q10-1" value="17301"><label for="q10-1">C</label><br><input
+                    type="radio" name="q10" id="q10-2" value="17302"><label for="q10-2">A</label><br><input type="radio"
+                    name="q10" id="q10-3" value="17303"><label for="q10-3">D</label><br><input type="radio" name="q10"
+                    id="q10-4" value="17304"><label for="q10-4">B</label><br><input type="radio" name="q10" id="q10-5"
+                    value="17305"><label for="q10-5">E</label><br></div><br>
+            <p style="margin:10px 0">11. Laura loves to eat apple but not the banana while John loves to eat mango and
+                the
+                banana. Kim loves to eat mango but not the apple and Jim loves to eat banana but not the mango. If each
+                child
+                loves to eat two of the three fruits, which one has the same preference as John?</p>
+            <div style="margin-left:15px">
+                <table style="width:100%;table-layout:fixed">
+                    <tbody>
+                        <tr>
+                            <td style="width:25%"><input type="radio" name="q11" id="q11-1" value="17306"><label for="q11-1">Kim</label></td>
+                            <td style="width:25%"><input type="radio" name="q11" id="q11-2" value="17307"><label for="q11-2">Laura</label></td>
+                            <td style="width:25%"><input type="radio" name="q11" id="q11-3" value="17308"><label for="q11-3">Jim</label></td>
+                            <td style="width:25%"><input type="radio" name="q11" id="q11-4" value="17309"><label for="q11-4">No
+                                    one</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><br>
+            <p style="margin:10px 0">12. A pair of referee and linesman officiated in football matches for a week. The
+                referees
+                were A, B, and C. The linesmen were 1, 2, 3, 4 and 5. </p>
+            <p class="big">a) No Referee or linesman officiated in two consecutive matches. <br>b) A and 3, if either
+                officiated, were always in a pair. <br> c) 5 officiated in Wednesday’s match. <br>d) 4 could not
+                officiate in a
+                match immediately preceding or following a match where 5 officiated. <br></p>
+            <p class="big">Which pair officiated in Tuesday’s match?</p>
+            <div style="margin-left:15px">
+                <table style="width:100%;table-layout:fixed">
+                    <tbody>
+                        <tr>
+                            <td style="width:25%"><input type="radio" name="q12" id="q12-1" value="17310"><label for="q12-1">A
+                                    and 5</label></td>
+                            <td style="width:25%"><input type="radio" name="q12" id="q12-2" value="17311"><label for="q12-2">C
+                                    and 4</label></td>
+                            <td style="width:25%"><input type="radio" name="q12" id="q12-3" value="17312"><label for="q12-3">B
+                                    and 2</label></td>
+                            <td style="width:25%"><input type="radio" name="q12" id="q12-4" value="17313"><label for="q12-4">A
+                                    and 2</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><br>
+        </div>
+        <button onclick="complete_survey()">Submit</button>
+    </div>
+
+</body>
+
+</html>
